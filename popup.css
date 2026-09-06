@@ -1,0 +1,455 @@
+/* YouTube Premium Extension Popup Styles */
+
+:root {
+  --bg-primary: #0f0f12;
+  --bg-secondary: #18181f;
+  --bg-card: #20202b;
+  --accent-red: #ff0033;
+  --accent-gold: #f1c40f;
+  --accent-gradient: linear-gradient(135deg, #ff0033 0%, #ff4b2b 100%);
+  --text-primary: #f1f1f1;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(255, 0, 51, 0.4);
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 6px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  width: 320px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 13px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.popup-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 0, 51, 0.1);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.brand-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+}
+
+.brand-name .accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.status-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.disabled {
+  background: rgba(149, 165, 166, 0.15);
+  color: #95a5a6;
+  border-color: rgba(149, 165, 166, 0.3);
+}
+
+/* Main Content Area */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview-card {
+  background: var(--bg-secondary);
+  align-items: center;
+}
+
+.card-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+  width: 100%;
+}
+
+.logo-preview-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  justify-content: center;
+}
+
+.preview-svg {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.country-preview {
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* Controls */
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.control-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.control-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.control-desc {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #333342;
+  transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: var(--accent-gradient);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2px 0;
+}
+
+/* Custom Text Input */
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 6px;
+}
+
+input[type="text"] {
+  flex: 1;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--accent-red);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 11px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Presets */
+.presets-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.presets-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.presets-buttons {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.preset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preset-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.preset-btn.active {
+  background: rgba(255, 0, 51, 0.15);
+  border-color: var(--accent-red);
+  color: #ff4b2b;
+  font-weight: 600;
+}
+
+/* Rainbow Star on GitHub Button (Uiverse.io inspired) */
+.rainbow-star-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  height: 38px;
+  padding: 0 12px;
+  user-select: none;
+  border: calc(0.08 * 1rem) solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200% 100%;
+  background-image:
+    linear-gradient(#121213, #121213),
+    linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(90deg, hsl(0, 100%, 63%), hsl(90, 100%, 63%), hsl(210, 100%, 63%), hsl(195, 100%, 63%), hsl(270, 100%, 63%));
+  animation: rainbow 3s linear infinite;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rainbow-star-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  z-index: 0;
+  height: 20%;
+  width: 65%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(90deg, hsl(0, 100%, 63%), hsl(90, 100%, 63%), hsl(210, 100%, 63%), hsl(195, 100%, 63%), hsl(270, 100%, 63%));
+  background-size: 200% 100%;
+  animation: rainbow 3s linear infinite;
+  filter: blur(calc(0.8 * 1rem));
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.rainbow-star-btn:hover {
+  transform: scale(1.02);
+}
+
+.rainbow-star-btn:hover::before {
+  opacity: 1;
+}
+
+.rainbow-star-btn:active {
+  transform: scale(0.98);
+}
+
+.star-btn-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+.star-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.github-icon {
+  width: 15px;
+  height: 15px;
+  fill: #ffffff;
+  flex-shrink: 0;
+}
+
+.star-btn-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.1px;
+}
+
+.star-btn-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.star-icon {
+  width: 13px;
+  height: 13px;
+  color: #9ca3af;
+  fill: currentColor;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.rainbow-star-btn:hover .star-icon {
+  color: #facc15;
+  transform: scale(1.15);
+}
+
+.star-count-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3px;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  padding-top: 4px;
+}
+
+.footer strong {
+  color: var(--text-secondary);
+}

@@ -1,0 +1,19 @@
+/* YouTube Premium Logo Changer - Content Styles */
+
+/* Ensure parent SVG never clips or submerges letters */
+ytd-topbar-logo-renderer svg,
+#logo-icon svg {
+  overflow: visible !important;
+}
+
+/* Ensure replacement SVG path scales gracefully */
+g[data-yt-premium-text] {
+  transition: opacity 0.15s ease-in-out;
+}
+
+
+/* Ensure current theme color inheritance for SVG text */
+#yt-premium-replaced-paths {
+  fill: currentColor !important;
+  color: inherit !important;
+}

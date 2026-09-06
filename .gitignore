@@ -1,0 +1,19 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build / Packaging Artifacts
+*.zip
+*.crx
+*.pem
+
+# Logs & Temporary Files
+*.log
+.tmp/
