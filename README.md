@@ -3,6 +3,7 @@
 [![Manifest V3](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![Chromium Compatible](https://img.shields.io/badge/Chromium-Chrome%20%7C%20Brave%20%7C%20Edge%20%7C%20Opera-success?style=flat-square&logo=google-chrome&logoColor=white)](https://www.google.com/chrome/)
 [![GitHub stars](https://img.shields.io/github/stars/kalpit118/youtube-premium-logo-changer?style=flat-square&logo=github&color=gold)](https://github.com/kalpit118/youtube-premium-logo-changer/stargazers)
+[![Downloads](https://img.shields.io/github/downloads/kalpit118/youtube-premium-logo-changer/total?style=flat-square&logo=github&color=blue)](https://github.com/kalpit118/youtube-premium-logo-changer/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/kalpit118/youtube-premium-logo-changer/pulls)
 
@@ -36,9 +37,9 @@ This extension can be installed on **any Chromium-based browser** (Google Chrome
 
 Choose **one** of the methods below to save the extension anywhere on your computer:
 
-#### Method A: Download as ZIP (Easiest)
-1. Click the green **Code** button at the top of this GitHub repository.
-2. Select **Download ZIP**.
+#### Method A: Download Latest Release (Recommended)
+1. Head over to the [**Latest GitHub Release**](https://github.com/kalpit118/youtube-premium-logo-changer/releases/latest).
+2. Download the packaged **`youtube-premium-logo-changer.zip`** from the **Assets** section.
 3. Extract the downloaded ZIP folder to any directory on your computer (for example: `Downloads`, `Documents`, or `Desktop`).
 
 #### Method B: Clone with Git

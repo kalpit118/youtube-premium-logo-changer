@@ -1,0 +1,71 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name (e.g. v1.0.0). Leave empty to use manifest.json version'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and Release Extension
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine Version Tag
+        id: get_version
+        run: |
+          if [ -n "${{ github.event.inputs.tag_name }}" ]; then
+            TAG="${{ github.event.inputs.tag_name }}"
+          elif [ "${{ github.ref_type }}" = "tag" ]; then
+            TAG="${{ github.ref_name }}"
+          else
+            VERSION=$(jq -r '.version' manifest.json)
+            TAG="v${VERSION}"
+          fi
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Building release for ${TAG}"
+
+      - name: Package Extension
+        run: |
+          TAG="${{ steps.get_version.outputs.tag }}"
+          ZIP_NAME="youtube-premium-logo-changer-${TAG}.zip"
+          
+          # Bundle the extension files (excluding git and development configs)
+          zip -r "${ZIP_NAME}" \
+            manifest.json \
+            background.js \
+            content.js \
+            popup.html \
+            popup.js \
+            popup.css \
+            styles.css \
+            assets/ \
+            LICENSE \
+            README.md
+
+          # Also create a generic named zip for fixed latest download links
+          cp "${ZIP_NAME}" youtube-premium-logo-changer.zip
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_version.outputs.tag }}
+          name: Release ${{ steps.get_version.outputs.tag }}
+          files: |
+            youtube-premium-logo-changer-*.zip
+            youtube-premium-logo-changer.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
