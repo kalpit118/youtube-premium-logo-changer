@@ -1,4 +1,4 @@
-# <img src="https://img.icons8.com/?size=100&id=9a46bTk3awwI&format=png&color=000000" width="36" height="36" align="center" alt="YouTube Premium Logo" /> YouTube Premium Logo Changer
+# YouTube Premium Logo Changer
 
 [![Manifest V3](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![Chromium Compatible](https://img.shields.io/badge/Chromium-Chrome%20%7C%20Brave%20%7C%20Edge%20%7C%20Opera-success?style=flat-square&logo=google-chrome&logoColor=white)](https://www.google.com/chrome/)
