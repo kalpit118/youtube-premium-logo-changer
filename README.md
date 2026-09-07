@@ -6,23 +6,25 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/kalpit118/youtube-premium-logo-changer/pulls)
 
+<p align="center">
+  <img src="assets/Banner.png" alt="YouTube Premium Logo Changer Banner" width="100%" />
+</p>
+
 A sleek, lightweight Chromium browser extension (Manifest V3) that seamlessly replaces the standard **"YouTube"** wordmark next to the red play icon with the official **"Premium"** vector badge (or any custom text of your choice) on [YouTube.com](https://www.youtube.com).
 
 Works effortlessly across all countries and regions, automatically adapts to Dark and Light themes, and persists across YouTube's single-page navigations (SPA).
 
----
+## ✨ Key Features
 
-## ✨ Features
-
-- 💎 **Authentic Vector Graphics**: Uses official YouTube Premium SVG paths for a pixel-perfect, crisp look on all display resolutions.
-- 🌓 **Adaptive Theme Support**: Automatically adjusts color via `fill="currentColor"`, blending natively with YouTube's Dark Mode, Light Mode, and custom ambient themes.
-- 🔄 **Seamless SPA Navigation**: YouTube never does a full page reload when browsing videos. Built-in `MutationObserver` and YouTube navigation event listeners (`yt-navigate-finish`, `yt-page-data-updated`) ensure the logo persists uninterrupted.
-- 🎛️ **Interactive Popup Control Panel**:
-  - **Live Preview**: Real-time interactive SVG logo preview box before applying changes.
-  - **Instant Toggle**: Easily switch the replacement ON or OFF with one click.
-  - **Custom Text Engine**: Enter any text you want (e.g., *Premium*, *PRO*, *PLUS*, *VIP*, or your name).
-  - **Quick Presets**: Fast one-click preset buttons for common badges.
-- 🔒 **Privacy-First & Lightweight**: Zero external analytics, zero tracking, zero bloat. Runs purely in your local browser and only requests `storage` to remember your badge preferences.
+| Feature | Highlight | Description |
+| :--- | :--- | :--- |
+| 💎 **Authentic Vector Graphics** | Pixel-Perfect SVG | Uses official YouTube Premium SVG path data for razor-sharp rendering on standard and 4K+ HiDPI displays. |
+| 🌓 **Adaptive Theme Engine** | Native Dark / Light | Utilizes dynamic `fill="currentColor"`, seamlessly matching YouTube's Dark Mode, Light Mode, and dynamic ambient lighting. |
+| 🔄 **SPA-Resilient Persistence** | Zero Flickering | Employs an optimized `MutationObserver` alongside YouTube's native SPA navigation lifecycle events (`yt-navigate-finish`, `yt-page-data-updated`). |
+| 🎛️ **Live Interactive Popup** | Real-time Preview | Test badge looks instantly inside the glassmorphic extension popup before applying to the active YouTube tab. |
+| ✏️ **Custom Text Engine** | Total Flexibility | Set any custom label (*Premium*, *PRO*, *PLUS*, *STUDIO*, or personal branding) with instant auto-scaling. |
+| ⚡ **Quick Presets** | One-Click Switch | Toggle between popular presets (*Premium*, *YT Premium*, *PRO*, *PLUS*) with a single tap. |
+| 🔒 **Privacy-First Architecture** | Zero Telemetry | Pure client-side execution with Manifest V3. No background network requests, no user tracking, zero bloat. |
 
 ---
 
@@ -90,17 +92,19 @@ Click the extension icon in your browser toolbar to access the popup dashboard:
 
 ```
 youtube-premium-logo-changer/
-├── manifest.json       # Chrome Manifest V3 configuration & permissions
-├── content.js          # Core DOM replacement engine & dynamic MutationObserver
-├── styles.css          # Injected styles for seamless SVG alignment & transitions
-├── popup.html          # Sleek glassmorphic extension popup UI
-├── popup.css           # Styling for popup dashboard and live preview box
-├── popup.js            # Controller for live preview, presets, and chrome.storage sync
-├── background.js       # Background service worker
-├── icon16.png          # Toolbar & tab icon (16x16)
-├── icon48.png          # Extension manager icon (48x48)
-├── icon128.png         # Web store & high-res display icon (128x128)
-└── README.md           # Documentation & installation guide
+├── assets/
+│   ├── icon16.png          # Toolbar & tab icon (16x16)
+│   ├── icon48.png          # Extension manager icon (48x48)
+│   ├── icon128.png         # Web store & high-res display icon (128x128)
+│   └── Banner.png          # Project showcase banner
+├── manifest.json           # Chrome Manifest V3 configuration & permissions
+├── content.js              # Core DOM replacement engine & dynamic MutationObserver
+├── styles.css              # Injected styles for seamless SVG alignment & transitions
+├── popup.html              # Sleek glassmorphic extension popup UI
+├── popup.css               # Styling for popup dashboard and live preview box
+├── popup.js                # Controller for live preview, presets, and chrome.storage sync
+├── background.js           # Background service worker
+└── README.md               # Documentation & installation guide
 ```
 
 ---
